@@ -1,2 +1,3 @@
-# mtg-mcp
-MCP to fetch cards and rule information from postgres db
+# MTG-MCP
+
+A Magic: The Gathering MCP server to fetch cards and rules for an LLM agent.
