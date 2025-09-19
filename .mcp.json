@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "mtg": {
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp",
+        "run",
+        "src/main.py"
+      ]
+    }
+  }
+}

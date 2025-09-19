@@ -13,7 +13,97 @@ dependencies = [
     "uvicorn"
 ]
 
-[project.dev-dependencies]
-test = [
-    "pytest",
+[dependency-groups]
+dev = [
+    "ruff>=0.12.9",
+    "ty>=0.0.1a19",
+    "coverage (>=7.10.4,<8.0.0)",
+    "pytest (>=8.4.1,<9.0.0)",
+    "pre-commit (>=4.3,<5.0)",
+    "pytest-asyncio (>=1.1.0,<2)",
 ]
+
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+asyncio_default_fixture_loop_scope = "function"
+
+
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+include = ["src/**/*.py", "alembic/**/*.py"]
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"]
+
+[tool.ruff.lint]
+ignore = ["B904", "COM812"]
+select = [
+    "E",
+    "F",
+    "I",
+    "A",
+    "B",
+    "ANN",
+    "FAST",
+    "ASYNC",
+    "ARG",
+    "S",
+    "BLE",
+    "COM",
+    "C4",
+    "T20",
+    "Q",
+    "RET",
+    "SIM",
+    "TC",
+    "PTH",
+    "N",
+    "PERF",
+    "W",
+    "RUF"
+]
+
+
+[tool.coverage.run]
+omit = ["*/site-packages/*", "tests/*"]
+command_line = "-m pytest tests"
+source = ["./src"]
+skip_empty = true
+
+[tool.coverage.report]
+include = ["src/*"]
+skip_empty = true
+show_missing = true
+
+[tool.ty.environment]
+root = ["./src"]

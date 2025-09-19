@@ -5,7 +5,7 @@ import asyncpg
 
 
 class Pool:
-    __slots__ = ("_pool", "_connection")
+    __slots__ = ("_connection", "_pool")
 
     def __init__(self) -> None:
         self._pool = None

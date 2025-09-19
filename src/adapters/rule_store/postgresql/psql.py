@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 
 from adapters.postgres.pool import get_pool
-from adapters.rule_store.postgresql.queries import GET_RULE, GET_SECTION, GET_SUBSECTION, GET_DEFINITION
+from adapters.rule_store.postgresql.queries import GET_DEFINITION, GET_RULE, GET_SECTION, GET_SUBSECTION
 from domain.interfaces.rule_store.interface import RuleStore
 from domain.models.definition import Definition
 from domain.models.rule import Rule

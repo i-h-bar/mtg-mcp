@@ -1,4 +1,3 @@
-
 GET_CARD = """
 select front.id                                            as front_id,
        front.name                                          as front_name,
