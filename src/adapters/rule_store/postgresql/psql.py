@@ -46,3 +46,14 @@ class PSQLRuleStore(RuleStore):
             return Definition.model_validate(dict(result))
 
         return None
+
+
+if __name__ == "__main__":
+    import asyncio
+
+    async def main():
+        rule_store = PSQLRuleStore()
+        rules = await rule_store.get_definition("trample")
+        x = 0
+
+    asyncio.run(main())
