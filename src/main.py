@@ -23,8 +23,8 @@ async def get_rule(rule_number: str) -> Rule | None:
 
 
 @mcp.tool("Get Rule Subsection")
-async def get_subsection(subsection_number: int) -> list[Rule] | None:
-    return await rule_store.get_subsection(subsection_number)
+async def get_subsection(subsection_number: int, limit: int = 10, offset: int = 0) -> list[Rule] | None:
+    return await rule_store.get_subsection(subsection_number, limit, offset)
 
 
 @mcp.tool("Get Rule Section")

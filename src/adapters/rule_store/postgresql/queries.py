@@ -9,7 +9,10 @@ GET_SECTION = """select *
 
 GET_SUBSECTION = """select *
                     from mtg_rule
-                    where subsection_id = $1;"""
+                    where subsection_id = $1
+                    order by rule_number
+                    limit $2 offset $3;
+                 """
 
 GET_DEFINITION = """select *, similarity(term, $1) as sml
                     from mtg_glossary
