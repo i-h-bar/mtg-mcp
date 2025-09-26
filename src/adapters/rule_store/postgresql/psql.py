@@ -23,10 +23,10 @@ class PSQLRuleStore(RuleStore):
 
         return None
 
-    async def get_section(self, section_number: int) -> list[Rule] | None:
+    async def get_section(self, section_number: int, limit: int, offset: int) -> list[Rule] | None:
         conn = await self.pool.connection()
 
-        if results := await conn.fetch(GET_SECTION, section_number):
+        if results := await conn.fetch(GET_SECTION, section_number, limit, offset):
             return [Rule.model_validate(dict(result)) for result in results]
 
         return None
