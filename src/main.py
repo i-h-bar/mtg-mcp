@@ -36,6 +36,3 @@ async def get_section(section_number: int, limit: int = 10, offset: int = 0) -> 
 async def get_definition(term: str) -> Definition | None:
     return await rule_store.get_definition(term)
 
-
-if __name__ == "__main__":
-    mcp.run(transport="sse")
