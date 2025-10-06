@@ -12,7 +12,7 @@ server_path = os.path.join(current_dir, "src/main.py")
 # Describe which MCP servers you want.
 CONFIG = {
     "mcpServers": {
-        "fii-demo": {
+        "mtg": {
             "command": "uv",
             "args": ["run", "mcp", "run", "src/main.py"]
         }
